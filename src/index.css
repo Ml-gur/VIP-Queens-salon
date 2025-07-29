@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  
+  /* Pearl Rose & Champagne Silk Color Palette */
+  --pearl-rose: #f4c2c2;
+  --pearl-rose-light: #faf0f0;
+  --pearl-rose-dark: #d63384;
+  
+  --champagne-silk: #f5e6d3;
+  --champagne-silk-light: #fdf7f0;
+  --champagne-silk-dark: #d4a574;
+  
+  --rose-gold: #e8b4b8;
+  --rose-gold-light: #f5e8ea;
+  --rose-gold-dark: #c7969a;
+  
+  --soft-cream: #faf9f7;
+  --warm-white: #fefefe;
+  --gentle-gray: #f7f7f8;
+  
+  /* Updated Theme Colors */
+  --background: var(--warm-white);
+  --foreground: #2d3748;
+  --card: var(--warm-white);
+  --card-foreground: #2d3748;
+  --popover: var(--warm-white);
+  --popover-foreground: #2d3748;
+  --primary: var(--pearl-rose-dark);
+  --primary-foreground: var(--warm-white);
+  --secondary: var(--champagne-silk);
+  --secondary-foreground: #2d3748;
+  --muted: var(--gentle-gray);
+  --muted-foreground: #718096;
+  --accent: var(--rose-gold);
+  --accent-foreground: #2d3748;
+  --destructive: #e53e3e;
+  --destructive-foreground: var(--warm-white);
+  --border: rgba(45, 55, 72, 0.1);
+  --input: transparent;
+  --input-background: var(--gentle-gray);
+  --switch-background: #cbd5e0;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: var(--pearl-rose-dark);
+  
+  /* Chart colors using new palette */
+  --chart-1: var(--pearl-rose-dark);
+  --chart-2: var(--champagne-silk-dark);
+  --chart-3: var(--rose-gold-dark);
+  --chart-4: #ff9f43;
+  --chart-5: #a55eea;
+  
+  --radius: 1rem;
+  --sidebar: var(--soft-cream);
+  --sidebar-foreground: #2d3748;
+  --sidebar-primary: var(--pearl-rose-dark);
+  --sidebar-primary-foreground: var(--warm-white);
+  --sidebar-accent: var(--champagne-silk-light);
+  --sidebar-accent-foreground: #2d3748;
+  --sidebar-border: rgba(45, 55, 72, 0.1);
+  --sidebar-ring: var(--pearl-rose-dark);
+}
+
+.dark {
+  --background: #1a202c;
+  --foreground: #f7fafc;
+  --card: #2d3748;
+  --card-foreground: #f7fafc;
+  --popover: #2d3748;
+  --popover-foreground: #f7fafc;
+  --primary: var(--pearl-rose-light);
+  --primary-foreground: #1a202c;
+  --secondary: #4a5568;
+  --secondary-foreground: #f7fafc;
+  --muted: #4a5568;
+  --muted-foreground: #a0aec0;
+  --accent: #4a5568;
+  --accent-foreground: #f7fafc;
+  --destructive: #fc8181;
+  --destructive-foreground: #1a202c;
+  --border: #4a5568;
+  --input: #4a5568;
+  --ring: var(--pearl-rose-light);
+}
+
+/* Custom Pearl Rose & Champagne Silk Utilities */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Pearl Rose & Champagne Silk color utilities */
+  --color-pearl-rose: var(--pearl-rose);
+  --color-pearl-rose-light: var(--pearl-rose-light);
+  --color-pearl-rose-dark: var(--pearl-rose-dark);
+  --color-champagne-silk: var(--champagne-silk);
+  --color-champagne-silk-light: var(--champagne-silk-light);
+  --color-champagne-silk-dark: var(--champagne-silk-dark);
+  --color-rose-gold: var(--rose-gold);
+  --color-rose-gold-light: var(--rose-gold-light);
+  --color-rose-gold-dark: var(--rose-gold-dark);
+  --color-soft-cream: var(--soft-cream);
+  --color-warm-white: var(--warm-white);
+  --color-gentle-gray: var(--gentle-gray);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  /* Logo fonts */
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(214, 51, 132, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(214, 51, 132, 0.6), 0 0 30px rgba(214, 51, 132, 0.4); }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  @keyframes fadeIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(10px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .animate-slideInUp {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+  
+  /* Gradient backgrounds with new colors */
+  .bg-pearl-gradient {
+    background: linear-gradient(135deg, var(--pearl-rose-light) 0%, var(--champagne-silk-light) 50%, var(--rose-gold-light) 100%);
+  }
+  
+  .bg-pearl-rose-gradient {
+    background: linear-gradient(135deg, var(--pearl-rose-light) 0%, var(--pearl-rose) 100%);
+  }
+  
+  .bg-champagne-gradient {
+    background: linear-gradient(135deg, var(--champagne-silk-light) 0%, var(--champagne-silk) 100%);
+  }
+  
+  .bg-rose-gold-gradient {
+    background: linear-gradient(135deg, var(--rose-gold-light) 0%, var(--rose-gold) 100%);
+  }
+  
+  /* Masonry grid for gallery */
+  .masonry-grid {
+    column-count: 2;
+    column-gap: 8px;
+    max-height: 600px;
+    overflow: hidden;
+  }
+  
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Mobile carousel optimizations */
+  @media (max-width: 768px) {
+    .mobile-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding: 0 16px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .mobile-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .mobile-carousel-item {
+      flex: 0 0 280px;
+      scroll-snap-align: center;
+    }
+    
+    .mobile-carousel-item.wide {
+      flex: 0 0 320px;
+    }
+    
+    .mobile-carousel-item.compact {
+      flex: 0 0 240px;
+    }
+  }
+}
+
+/**
+ * Base typography with Inter font
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: #2d3748;
+      font-family: 'Inter', sans-serif;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: #2d3748;
+      font-family: 'Inter', sans-serif;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: #2d3748;
+      font-family: 'Inter', sans-serif;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: #2d3748;
+      font-family: 'Inter', sans-serif;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.6;
+      color: #4a5568;
+      font-family: 'Inter', sans-serif;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: #2d3748;
+      font-family: 'Inter', sans-serif;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      font-family: 'Inter', sans-serif;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.4;
+      font-family: 'Inter', sans-serif;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Mobile-first responsive design utilities */
+@layer utilities {
+  .container-mobile {
+    @apply px-4 mx-auto;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 640px) {
+    .container-mobile {
+      @apply px-6;
+      max-width: 640px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-mobile {
+      @apply px-8;
+      max-width: 768px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-mobile {
+      max-width: 1024px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container-mobile {
+      max-width: 1200px;
+    }
+  }
+}
